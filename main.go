@@ -1,6 +1,9 @@
 package main
 
-import "data_structures/structures"
+import (
+	"data_structures/structures"
+	"fmt"
+)
 
 func main() {
 	linkedList := structures.LinkedList{}
@@ -12,5 +15,10 @@ func main() {
 	linkedList.Insert(5)
 	linkedList.Insert(6)
 
-	linkedList.Show()
+	current := linkedList.First
+
+	for current != nil {
+		fmt.Printf("-> %v ", current.Value)
+		current = current.Next
+	}
 }
