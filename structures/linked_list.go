@@ -11,19 +11,19 @@ package structures
 
 */
 
-type node struct {
-	Value any
-	Next  *node
-	Prev  *node
+type node[T any] struct {
+	Value T
+	Next  *node[T]
+	Prev  *node[T]
 }
 
-type LinkedList struct {
-	First *node
-	last  *node
+type LinkedList[T any] struct {
+	First *node[T]
+	last  *node[T]
 }
 
-func (l *LinkedList) Insert(value any) {
-	node := &node{Value: value}
+func (l *LinkedList[T]) Insert(value T) {
+	node := &node[T]{Value: value}
 	if l.First == nil {
 		l.First = node
 	} else {
